@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gioco di Mischiare Colori</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+<!-- Titolo grande in alto -->
+<h1 class="page-title">Crea il tuo colore</h1>
+<div class="container">
+    <!-- Colori a sinistra -->
+    <div class="color-picker left">
+        <!-- 3x6 grid di quadrati -->
+        <div class="color-grid">
+            <!-- Ripetere questi quadrati per tutti i colori -->
+            <div class="color" id="color-1" style="background-color: #0000ff;"></div>
+            <div class="color" id="color-2" style="background-color: #ff0000;"></div>
+            <div class="color" id="color-3" style="background-color: #00ff00;"></div>
+            <div class="color" id="color-4" style="background-color: #ffff00;"></div>
+            <div class="color" id="color-5" style="background-color: #ff00ff;"></div>
+            <div class="color" id="color-6" style="background-color: #00ffff;"></div>
+        </div>
+    </div>
+
+    <!-- Quadrato centrale (colorato in base al mix) -->
+    <div class="color-display" id="color-display"></div>
+
+    <!-- Colori a destra -->
+    <div class="color-picker right">
+        <div class="color-grid">
+            <div class="color" id="color-13" style="background-color: #0000ff;"></div>
+            <div class="color" id="color-14" style="background-color: #ff0000;"></div>
+            <div class="color" id="color-15" style="background-color: #00ff00;"></div>
+            <div class="color" id="color-16" style="background-color: #ffff00;"></div>
+            <div class="color" id="color-17" style="background-color: #ff00ff;"></div>
+            <div class="color" id="color-18" style="background-color: #00ffff;"></div>
+        </div>
+    </div>
+
+    <!-- Barra per mescolare i colori -->
+    <div class="slider-container">
+        <input type="range" id="color-slider" min="0" max="100" value="50">
+        <span id="slider-value">50%</span>
+    </div>
+
+    <!-- Bottone Avanti -->
+    <div class="next-button-container">
+        <button id="next-button">Avanti</button>
+    </div>
+    <div class="left-color-indicator color-indicator"></div>
+    <div class="right-color-indicator color-indicator"></div>
+</div>
+
+<script src="js/app.js"></script>
+</body>
+</html>

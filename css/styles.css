@@ -1,0 +1,311 @@
+/* Impostazioni generali */
+body {
+  background: linear-gradient(to right, #f4f4f9, #e0e0e0);
+  font-family: 'Poppins', sans-serif;
+  height: 100vh;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.page-title {
+  font-size: 3rem;
+  font-weight: 600;
+  color: #4CAF50;
+  text-align: center;
+  opacity: 0;
+  animation: fadeInTitle 1s ease-out forwards;
+}
+
+@keyframes fadeInTitle {
+  to {
+    opacity: 1;
+  }
+}
+
+/* Contenitore principale */
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  width: 80%;
+  height: 80%;
+  position: relative;
+  flex-direction: column;
+}
+
+.color-picker {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  position: absolute;
+  top: 60%;
+  transform: translateY(-50%);
+}
+
+.left, .right {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* 2 colonne */
+  grid-template-rows: repeat(2, 1fr); /* 2 righe */
+  gap: 10px;
+  width: 150px;
+  height: 150px;
+  margin: 0 10px;
+  transition: transform 0.5s ease; /* Aggiungiamo transizione per il movimento */
+}
+
+.left {
+  left: 20%;
+}
+
+.right {
+  right: 20%;
+}
+
+.color {
+  width: 60px;
+  height: 60px;
+  border-radius: 30%; /* Rende i quadrati arrotondati come cerchi */
+  border: 3px solid #fff; /* Bordo bianco per far risaltare i colori */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+}
+
+.color:hover {
+  transform: scale(1.1); /* Aumenta il colore su hover */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); /* Aggiungi un'ombra per effetto hover */
+}
+
+.color-display {
+  width: 200px;
+  height: 200px;
+  background-color: #cccccc;
+  position: absolute;
+  top: 10%;
+  left: 50%;
+  transform: translateX(-50%);
+  border-radius: 10px;
+  transition: background-color 0.3s ease;
+}
+
+/* Barra dello slider */
+.slider-container {
+  margin-top: 20px;
+  display: none;
+  text-align: center;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  top: 70%; /* Posizionamento ottimizzato */
+}
+
+input[type="range"] {
+  width: 80%;
+  border-radius: 12px;
+  height: 12px;
+  background: linear-gradient(to right, #ff0000, #00ff00, #0000ff); /* Sfondo di gradiente colorato */
+  outline: none;
+}
+
+input[type="range"]:focus {
+  background: #b3b3b3;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+  background: #4CAF50;
+  border-radius: 50%;
+  border: 2px solid #2c6b2f;
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+}
+
+input[type="range"]::-webkit-slider-thumb:hover {
+  background: #45a049;
+}
+
+#slider-value {
+  font-weight: bold;
+  color: #333;
+  margin-top: 10px;
+}
+
+/* Pulsante "Avanti" */
+.next-button-container {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+}
+
+button {
+  background-color: #4CAF50;
+  color: white;
+  padding: 12px 24px;
+  border: none;
+  cursor: pointer;
+  border-radius: 8px;
+  font-size: 16px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+button:hover {
+  background-color: #45a049;
+  transform: scale(1.1); /* Leggera animazione di ingrandimento */
+}
+
+/* Polaroid: pagina successiva */
+.polaroid-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: #f7f7f7;
+}
+
+.polaroid {
+  width: 300px;
+  height: 400px;
+  background-color: #fff;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  border-radius: 10px;
+  position: relative;
+  animation: fadeIn 3s ease-in-out; /* Animazione di ingresso */
+}
+
+.polaroid-image {
+  width: 100%;
+  height: 250px;
+  border-radius: 8px;
+  background-color: #eee;
+  margin-bottom: 40px;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1); /* Ombra più soft */
+}
+
+
+.polaroid-footer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: absolute;
+  bottom: 20px;
+  width: 100%;
+}
+
+#polaroid-name {
+  padding: 10px;
+  width: 80%;
+  font-size: 18px;
+  border: 2px solid #4CAF50;
+  border-radius: 8px;
+  margin-bottom: 8px;
+  text-align: center;
+  background-color: #fff;
+}
+
+#print-button {
+  padding: 10px 20px;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 50px;
+  font-size: 18px;
+  cursor: pointer;
+  opacity: 0.7;
+  transition: opacity 0.3s ease, transform 0.2s ease;
+  background-color: #45a049;
+}
+
+#print-button:enabled {
+  background-color: #45a049; /* Cambia il colore di sfondo quando abilitato */
+}
+
+#print-button:disabled {
+  background-color: #ccc; /* Colore grigio quando disabilitato */
+  cursor: not-allowed; /* Cambia il cursore per indicare che non è cliccabile */
+}
+#polaroid-name:focus {
+    border-color: #4CAF50; /* Colore del bordo quando il campo è in focus */
+    outline: none; /* Rimuovi il bordo di focus predefinito */
+}
+
+
+#print-button:hover {
+  opacity: 1;
+  transform: scale(1.05); /* Leggera animazione di ingrandimento */
+}
+
+/* Animazione di apparizione per la polaroid */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.next-button-container button,
+#print-button {
+  transition: transform 0.2s ease;
+}
+
+.next-button-container button:hover,
+#print-button:hover {
+  transform: scale(1.1); /* Leggera animazione di ingrandimento */
+}
+
+/* Posizione iniziale degli indicatori vicino alla barra */
+
+/* Posizione per l'indicatore a sinistra */
+/* Indicatore a sinistra */
+.left-color-indicator {
+  display: block;  /* Sempre visibile */
+  position: absolute;
+  top: 61%; /* Posizionato sotto la barra, ad esempio a 62% della altezza */
+  left: 40%; /* Spostato a sinistra rispetto al centro (50%) */
+  width: 40px;
+  height: 40px;
+  background-color: transparent;
+  cursor: pointer;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+  z-index: 10;  /* Assicurati che gli indicatori siano sopra gli altri elementi */
+   border-radius: 30%; /* Rende i quadrati arrotondati come cerchi */
+}
+
+/* Indicatore a destra */
+.right-color-indicator {
+  display: block;  /* Sempre visibile */
+  position: absolute;
+  top: 61%; /* Posizionato sotto la barra */
+  right: 40%; /* Spostato a destra rispetto al centro (50%) */
+  width: 40px;
+  height: 40px;
+  background-color: transparent;
+  cursor: pointer;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+  z-index: 10;  /* Assicurati che gli indicatori siano sopra gli altri elementi */
+   border-radius: 30%; /* Rende i quadrati arrotondati come cerchi */
+}
+
+/* Classe per mostrare gli indicatori (es. quando il colore è selezionato) */
+.left-color-indicator.visible,
+.right-color-indicator.visible {
+  opacity: 1;  /* Selezionato, mostrato */
+  transform: scale(1.2);
+}
+
+/* Aggiungi hover per gli indicatori */
+.left-color-indicator:hover,
+.right-color-indicator:hover {
+  background-color: rgba(0, 0, 0, 0.1);
+}
+

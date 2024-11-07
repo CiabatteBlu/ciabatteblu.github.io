@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="10588a04-7ce8-41f5-bd7c-a96f3dc81a03" name="Changes" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ProjectColorInfo"><![CDATA[{
+  "associatedIndex": 0
+}]]></component>
+  <component name="ProjectId" id="2oVuJhrJtDEMlOWDMykkNEVUfNc" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "kotlin-language-version-configured": "true"
+  }
+}]]></component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="10588a04-7ce8-41f5-bd7c-a96f3dc81a03" name="Changes" comment="" />
+      <created>1730966995853</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1730966995853</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="com.github.evgenys91.machinet.common.dslhistory.DslHistoryState">
+    <option name="historyDtoById">
+      <map>
+        <entry key="f62d44">
+          <value>
+            <ChatHistoryModel>
+              <option name="id" value="f62d44" />
+              <option name="initiateTms" value="1730971534925" />
+              <option name="isStopped" value="true" />
+              <option name="request" value=" document.addEventListener('DOMContentLoaded', () =&gt; {&#10;  const leftColorPicker = document.querySelectorAll('.left .color');&#10;  const rightColorPicker = document.querySelectorAll('.right .color');&#10;  const colorDisplay = document.getElementById('color-display');&#10;  const colorSlider = document.getElementById('color-slider');&#10;  const sliderValue = document.getElementById('slider-value');&#10;  const sliderContainer = document.querySelector('.slider-container');&#10;  const nextButton = document.getElementById('next-button');&#10;&#10;  let leftColor = null; // Colore selezionato a sinistra&#10;  let rightColor = null; // Colore selezionato a destra&#10;  let leftColorSelected = false; // Stato di selezione a sinistra&#10;  let rightColorSelected = false; // Stato di selezione a destra&#10;&#10; function mixColors(color1, color2, percentage) {&#10;   const c1 = hexToRgb(color1);&#10;   const c2 = hexToRgb(color2);&#10;&#10;   const r = Math.round(c1.r + (c2.r - c1.r) * (percentage / 100));&#10;   const g = Math.round(c1.g + (c2.g - c1.g) * (percentage / 100));&#10;   const b = Math.round(c1.b + (c2.b - c1.b) * (percentage / 100));&#10;&#10;   return `rgb(${r}, ${g}, ${b})`;&#10; }&#10;&#10; // Funzione per convertire un colore in formato hex in RGB&#10; function hexToRgb(hex) {&#10;   const r = parseInt(hex.slice(1, 3), 16);&#10;   const g = parseInt(hex.slice(3, 5), 16);&#10;   const b = parseInt(hex.slice(5, 7), 16);&#10;   return { r, g, b };&#10; }&#10;&#10;&#10;  // Funzione per aggiornare il colore centrale&#10;  function updateColorDisplay() {&#10;    if (leftColor &amp;&amp; rightColor) {&#10;      const mixedColor = mixColors(leftColor, rightColor, colorSlider.value); // Usa la percentuale della barra&#10;      colorDisplay.style.backgroundColor = mixedColor;  // Applica il colore miscelato al quadrato centrale&#10;    }&#10;  }&#10;&#10;&#10;  // Funzione per gestire la visibilità dei colori (fade)&#10;  function updateColorVisibility() {&#10;    // Selezione colori a sinistra&#10;    leftColorPicker.forEach((colorElement) =&gt; {&#10;      // Se il colore è selezionato, lascia visibile, altrimenti fai scomparire&#10;      if (leftColorSelected) {&#10;        colorElement.style.opacity = (leftColor === colorElement.style.backgroundColor) ? 1 : 0;&#10;      } else {&#10;        colorElement.style.opacity = 1; // Mostra tutti i colori quando nessuno è selezionato&#10;      }&#10;      colorElement.style.transition = &quot;opacity 0.5s ease&quot;; // Applicare la dissolvenza&#10;    });&#10;&#10;    // Selezione colori a destra&#10;    rightColorPicker.forEach((colorElement) =&gt; {&#10;      // Se il colore è selezionato, lascia visibile, altrimenti fai scomparire&#10;      if (rightColorSelected) {&#10;        colorElement.style.opacity = (rightColor === colorElement.style.backgroundColor) ? 1 : 0;&#10;      } else {&#10;        colorElement.style.opacity = 1; // Mostra tutti i colori quando nessuno è selezionato&#10;      }&#10;      colorElement.style.transition = &quot;opacity 0.5s ease&quot;; // Applicare la dissolvenza&#10;    });&#10;  }&#10;&#10;  // Funzione per gestire la selezione e deselezione dei colori&#10;  function toggleColorSelection(colorElement, side) {&#10;    const color = colorElement.style.backgroundColor;&#10;&#10;    if (side === 'left') {&#10;      if (leftColor === color) {&#10;        leftColor = null; // Deseleziona il colore&#10;        leftColorSelected = false;&#10;      } else {&#10;        leftColor = color;&#10;        leftColorSelected = true;&#10;      }&#10;    } else if (side === 'right') {&#10;      if (rightColor === color) {&#10;        rightColor = null; // Deseleziona il colore&#10;        rightColorSelected = false;&#10;      } else {&#10;        rightColor = color;&#10;        rightColorSelected = true;&#10;      }&#10;    }&#10;&#10;    // La barra di miscelazione appare solo quando entrambi i colori sono selezionati&#10;    if (leftColorSelected &amp;&amp; rightColorSelected) {&#10;      sliderContainer.style.display = 'block'; // Mostra la barra&#10;    } else {&#10;      sliderContainer.style.display = 'none'; // Nasconde la barra&#10;    }&#10;&#10;    updateColorVisibility(); // Aggiorna la visibilità dei colori&#10;    updateColorDisplay(); // Aggiorna il colore centrale&#10;  }&#10;&#10;  // Imposta gli eventi sui colori a sinistra&#10;  leftColorPicker.forEach((colorElement) =&gt; {&#10;    colorElement.addEventListener('click', () =&gt; {&#10;      toggleColorSelection(colorElement, 'left');&#10;    });&#10;  });&#10;&#10;  // Imposta gli eventi sui colori a destra&#10;  rightColorPicker.forEach((colorElement) =&gt; {&#10;    colorElement.addEventListener('click', () =&gt; {&#10;      toggleColorSelection(colorElement, 'right');&#10;    });&#10;  });&#10;&#10;  // Aggiorna il colore centrale quando si muove la barra&#10;  colorSlider.addEventListener('input', () =&gt; {&#10;    updateColorDisplay();&#10;    sliderValue.textContent = `${colorSlider.value}%`;&#10;  });&#10;});&#10;ho questo codice, ora ti dico per cosa mi serve" />
+              <option name="response" value="" />
+              <option name="usedLocalFilePaths">
+                <list>
+                  <option value="$PROJECT_DIR$/js/app.js" />
+                </list>
+              </option>
+            </ChatHistoryModel>
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+</project>
