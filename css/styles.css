@@ -98,7 +98,7 @@ body {
   position: absolute;
   left: 50%;
   transform: translateX(-50%);
-  top: 70%; /* Posizionamento ottimizzato */
+  top: 50%; /* Posizionamento ottimizzato */
 }
 
 input[type="range"] {
@@ -270,7 +270,7 @@ button:hover {
 .left-color-indicator {
   display: block;  /* Sempre visibile */
   position: absolute;
-  top: 61%; /* Posizionato sotto la barra, ad esempio a 62% della altezza */
+  top: 71%; /* Posizionato sotto la barra, ad esempio a 62% della altezza */
   left: 40%; /* Spostato a sinistra rispetto al centro (50%) */
   width: 40px;
   height: 40px;
@@ -285,7 +285,7 @@ button:hover {
 .right-color-indicator {
   display: block;  /* Sempre visibile */
   position: absolute;
-  top: 61%; /* Posizionato sotto la barra */
+  top: 71%; /* Posizionato sotto la barra */
   right: 40%; /* Spostato a destra rispetto al centro (50%) */
   width: 40px;
   height: 40px;
